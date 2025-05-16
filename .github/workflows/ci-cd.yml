@@ -1,32 +1,32 @@
 name: CI/CD Pipeline
 
 on:
-    push:
-        braches: [ main ]
+  push:
+    branches: [ main ]
 
 jobs:
-    build-and-test:
-        runs-on: ubuntu-latest
-
-        step:
-        - uses: actions/checkout@v2
-
-        - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-            node-version: '16'
-
-        - name: Install Dependencies
-        run: npm install
-
-        - name: run Tests
-        run: npm test 
-
-        - name: Build
-        run: npm run build
-
-        - name: Deploy to GitHun Pages
-        uses: jamesIves/github-pages-deploy-action@4.1.4
-        with:
-            branch: gh-pages
-            folder: build
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+        
+    - name: Install Dependencies
+      run: npm install
+      
+    - name: Run Tests
+      run: npm test
+      
+    - name: Build
+      run: npm run build
+      
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages
+        folder: build
