@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Welcome from './components/Welcome';
+import Welcome from './components/welcome';
 
 function App() {
   return (
