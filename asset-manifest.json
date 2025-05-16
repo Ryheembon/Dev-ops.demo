@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Dev-ops.demo/static/css/main.4ecad6bb.css",
+    "main.js": "/Dev-ops.demo/static/js/main.82d11493.js",
+    "index.html": "/Dev-ops.demo/index.html",
+    "main.4ecad6bb.css.map": "/Dev-ops.demo/static/css/main.4ecad6bb.css.map",
+    "main.82d11493.js.map": "/Dev-ops.demo/static/js/main.82d11493.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ecad6bb.css",
+    "static/js/main.82d11493.js"
+  ]
+}
