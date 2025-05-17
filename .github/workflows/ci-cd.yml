@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, staging ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, staging ]
 
 permissions:
   contents: write
@@ -31,10 +31,35 @@ jobs:
     - name: Run Tests
       run: npm test
       
-    - name: Build
-      run: npm run build
+    - name: Build Staging
+      if: github.ref == 'refs/heads/staging'
+      run: npm run build:staging
+      env:
+        REACT_APP_ENV: staging
+        REACT_APP_API_URL: ${{ secrets.STAGING_API_URL }}
+        REACT_APP_GITHUB_URL: ${{ secrets.REACT_APP_GITHUB_URL }}
+        REACT_APP_ENABLE_ANIMATIONS: ${{ secrets.REACT_APP_ENABLE_ANIMATIONS }}
+        REACT_APP_DEBUG: true
       
-    - name: Deploy to GitHub Pages
+    - name: Build Production
+      if: github.ref == 'refs/heads/main'
+      run: npm run build:prod
+      env:
+        REACT_APP_ENV: production
+        REACT_APP_API_URL: ${{ secrets.PRODUCTION_API_URL }}
+        REACT_APP_GITHUB_URL: ${{ secrets.REACT_APP_GITHUB_URL }}
+        REACT_APP_ENABLE_ANIMATIONS: ${{ secrets.REACT_APP_ENABLE_ANIMATIONS }}
+        REACT_APP_DEBUG: false
+      
+    - name: Deploy to GitHub Pages (Staging)
+      if: github.ref == 'refs/heads/staging'
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages-staging
+        folder: build
+        clean: true
+      
+    - name: Deploy to GitHub Pages (Production)
       if: github.ref == 'refs/heads/main'
       uses: JamesIves/github-pages-deploy-action@v4
       with:

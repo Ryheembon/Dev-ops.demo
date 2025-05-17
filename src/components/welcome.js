@@ -1,9 +1,24 @@
 import React from 'react'
 
 function Welcome() {
+    // Use environment variable with fallback
+    const githubUrl = process.env.REACT_APP_GITHUB_URL || 'https://github.com/Ryheembon/Dev-ops.demo';
+    const enableAnimations = process.env.REACT_APP_ENABLE_ANIMATIONS === 'true';
+    const apiUrl = process.env.REACT_APP_API_URL == 'true';
+
+    // Only show warning if API URL is required for future features
+    const showApiWarning = false; // Set to true when you need the API URL
+    const missingVars = [];
+    if (showApiWarning && !apiUrl) missingVars.push('REACT_APP_API_URL');
+
     return (
-        <div className="welcome-container">
+        <div className={`welcome-container ${enableAnimations ? 'with-animations' : ''}`}>
             <div className="welcome-content">
+                {missingVars.length > 0 && (
+                    <div className="error-message">
+                        Warning: Missing environment variables: {missingVars.join(', ')}
+                    </div>
+                )}
                 <h1>DevOps Portfolio Project</h1>
                 <p className="subtitle">A Modern React Application with CI/CD Pipeline</p>
                 <div className="features">
@@ -21,7 +36,7 @@ function Welcome() {
                     </div>
                 </div>
                 <div className="cta-section">
-                    <a href="https://github.com/Ryheembon/Dev-ops.demo" 
+                    <a href={githubUrl} 
                        className="github-link" 
                        target="_blank" 
                        rel="noopener noreferrer">
