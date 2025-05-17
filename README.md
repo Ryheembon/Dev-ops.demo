@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+# DevOps Portfolio Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React application demonstrating CI/CD practices, environment management, and monitoring implementation.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **React Application**
+  - Modern React practices
+  - Clean architecture
+  - Responsive design
+  - Animated components
 
-### `npm start`
+- **CI/CD Pipeline**
+  - Automated testing
+  - Linting checks
+  - Automated deployment
+  - GitHub Actions workflow
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Environment Management**
+  - Development environment
+  - Staging environment
+  - Production environment
+  - Environment-specific configurations
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Monitoring & Analytics**
+  - Google Analytics integration
+  - Performance monitoring
+  - Error tracking
+  - User interaction tracking
 
-### `npm test`
+## 🛠️ Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React 18
+- GitHub Actions
+- Google Analytics 4
+- Web Vitals
+- Environment Variables
 
-### `npm run build`
+## 📦 Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+```bash
+git clone https://github.com/Ryheembon/Dev-ops.demo.git
+cd Dev-ops.demo
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Set up environment variables:
+   - Create `.env.development` for local development
+   - Create `.env.staging` for staging environment
+   - Create `.env.production` for production environment
 
-### `npm run eject`
+## 🔧 Environment Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Development
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Staging
+```bash
+npm run build:staging
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Production
+```bash
+npm run build:prod
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📊 Monitoring
 
-## Learn More
+The application includes:
+- Page view tracking
+- User interaction tracking
+- Performance metrics
+- Error tracking
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To view analytics:
+1. Go to Google Analytics dashboard
+2. Select your property
+3. View real-time and historical data
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔄 CI/CD Pipeline
 
-### Code Splitting
+The project uses GitHub Actions for:
+- Automated testing
+- Linting checks
+- Build process
+- Deployment to GitHub Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Deployment URLs
+- Production: https://ryheembon.github.io/Dev-ops.demo/
+- Staging: https://ryheembon.github.io/Dev-ops.demo/staging
 
-### Analyzing the Bundle Size
+## 🏗️ Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+├── src/
+│   ├── components/
+│   │   └── welcome.js
+│   ├── utils/
+│   │   └── monitoring.js
+│   ├── App.js
+│   └── index.js
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+├── .env.development
+├── .env.staging
+├── .env.production
+└── package.json
+```
 
-### Making a Progressive Web App
+## 🔍 Available Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `npm start` - Run development server
+- `npm run build` - Build for production
+- `npm run build:staging` - Build for staging
+- `npm run build:prod` - Build for production
+- `npm test` - Run tests
+- `npm run lint` - Run linting
 
-### Advanced Configuration
+## 📝 Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Required environment variables:
+```
+REACT_APP_ENV=development|staging|production
+REACT_APP_API_URL=your_api_url
+REACT_APP_GITHUB_URL=your_github_url
+REACT_APP_ENABLE_ANIMATIONS=true|false
+REACT_APP_DEBUG=true|false
+REACT_APP_GA_MEASUREMENT_ID=your_ga_id
+```
 
-### Deployment
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### `npm run build` fails to minify
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+Ryheembon
+- GitHub: [@Ryheembon](https://github.com/Ryheembon)
+
+## 🙏 Acknowledgments
+
+- React Documentation
+- GitHub Actions Documentation
+- Google Analytics Documentation

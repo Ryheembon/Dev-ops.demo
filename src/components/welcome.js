@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { trackEvent, logError } from '../utils/monitoring'
 
 function Welcome() {
     // Use environment variable with fallback
@@ -6,10 +7,28 @@ function Welcome() {
     const enableAnimations = process.env.REACT_APP_ENABLE_ANIMATIONS === 'true';
     const apiUrl = process.env.REACT_APP_API_URL;
 
+    // Track component mount
+    useEffect(() => {
+        trackEvent('component_mount', {
+            component: 'Welcome',
+            environment: process.env.REACT_APP_ENV
+        });
+    }, []);
+
     // Only show warning if API URL is required for future features
     const showApiWarning = false; // Set to true when you need the API URL
     const missingVars = [];
-    if (showApiWarning && !apiUrl) missingVars.push('REACT_APP_API_URL');
+    if (showApiWarning && !apiUrl) {
+        missingVars.push('REACT_APP_API_URL');
+        logError(new Error('Missing API URL'), { component: 'Welcome' });
+    }
+
+    const handleGitHubClick = () => {
+        trackEvent('github_click', {
+            url: githubUrl,
+            environment: process.env.REACT_APP_ENV
+        });
+    };
 
     return (
         <div className={`welcome-container ${enableAnimations ? 'with-animations' : ''}`}>
@@ -39,7 +58,8 @@ function Welcome() {
                     <a href={githubUrl} 
                        className="github-link" 
                        target="_blank" 
-                       rel="noopener noreferrer">
+                       rel="noopener noreferrer"
+                       onClick={handleGitHubClick}>
                         View on GitHub
                     </a>
                 </div>
