@@ -4,7 +4,7 @@ function Welcome() {
     // Use environment variable with fallback
     const githubUrl = process.env.REACT_APP_GITHUB_URL || 'https://github.com/Ryheembon/Dev-ops.demo';
     const enableAnimations = process.env.REACT_APP_ENABLE_ANIMATIONS === 'true';
-    const apiUrl = process.env.REACT_APP_API_URL == 'true';
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     // Only show warning if API URL is required for future features
     const showApiWarning = false; // Set to true when you need the API URL
